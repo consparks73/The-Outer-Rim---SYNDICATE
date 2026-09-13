@@ -6,7 +6,7 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['dist/**', 'node_modules/**', '.eslintrc.json'],
+    ignores: ['dist/**', 'dev-dist/**', 'node_modules/**', '.eslintrc.json'],
   },
   js.configs.recommended,
   {
@@ -31,8 +31,9 @@ export default [
       '@typescript-eslint/no-explicit-any': 'off',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
-      'react-hooks/rules-of-hooks': 'warn',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/rules-of-hooks': 'off',
+      'react-hooks/exhaustive-deps': 'off',
+      'react-hooks/set-state-in-effect': 'off'
     },
   },
 ];

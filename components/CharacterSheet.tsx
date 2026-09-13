@@ -193,7 +193,7 @@ export const CharacterSheet: React.FC<CharacterSheetProps> = ({ gameState, onClo
                                             <span className="text-xs text-white uppercase font-bold tracking-widest">Faction Standing</span>
                                         </div>
                                         <div className="grid grid-cols-2 gap-4">
-                                            {Object.entries(gameState.reputation || {}).map(([faction, value]) => (
+                                            {Object.entries(gameState.reputation || {}).map(([faction, value]: [string, any]) => (
                                                 <div key={faction} className="p-4 bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl flex items-center gap-4">
                                                     <div className="w-10 h-10 rounded-full bg-black/40 flex items-center justify-center border border-white/5 overflow-hidden">
                                                         {factionIcons[faction] ? (

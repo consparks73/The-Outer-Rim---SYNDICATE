@@ -630,7 +630,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
     // Low reputation with any faction can cause bounty hunters anywhere
     let huntedChance = 0;
     const lowRepFactions = Object.entries(gameState.reputation).filter(
-      ([_, rep]) => rep <= -50,
+      ([_, rep]: [string, any]) => rep <= -50,
     );
     if (lowRepFactions.length > 0) {
       huntedChance = 0.08;
@@ -924,7 +924,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       }
 
       const lowRepFactions = Object.entries(gameState.reputation).filter(
-        ([_, rep]) => rep <= -50,
+        ([_, rep]: [string, any]) => rep <= -50,
       );
 
       const roll = Math.random();
@@ -2456,14 +2456,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
                       <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
                         {Object.entries(
                           Object.values(locations).reduce(
-                            (acc, loc) => {
+                            (acc: Record<string, any[]>, loc: any) => {
                               if (loc.sector) {
                                 if (!acc[loc.sector]) acc[loc.sector] = [];
                                 acc[loc.sector].push(loc);
                               }
                               return acc;
                             },
-                            {} as Record<string, Location[]>,
+                            {} as Record<string, any[]>,
                           ),
                         ).map(([sectorName, locs]) => {
                           const isCurrent =

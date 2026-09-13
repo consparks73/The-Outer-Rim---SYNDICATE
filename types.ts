@@ -5,12 +5,13 @@ export interface Searchable {
   item?: string;
   credits?: number;
   chance: number;
-  reqQuestState?: { id: string; step: number; completed?: boolean };
+  reqQuestState?: { id: string; step?: number; completed?: boolean };
   questUpdate?: { id: string; step: number };
   questComplete?: boolean;
   startQuest?: string;
   locked?: boolean;
   difficulty?: "easy" | "medium" | "hard";
+  action?: (gameState: any) => void;
 }
 
 export interface Encounter {
@@ -33,7 +34,7 @@ export interface Location {
   firstVisitDescription?: string;
   imageUrl: string;
   exits: string[];
-  reqQuestState?: { id: string; step: number; completed?: boolean };
+  reqQuestState?: { id: string; step?: number; completed?: boolean };
   reqItem?: string;
   hideIfLocked?: boolean;
   actions?: string[];
@@ -72,7 +73,7 @@ export interface Item {
   id: string;
   name: string;
   rarity: "common" | "uncommon" | "rare" | "legendary";
-  count: number;
+  count?: number;
   type?:
     | "weapon"
     | "consumable"
@@ -90,7 +91,7 @@ export interface Item {
   abilities?: string[]; // e.g. ['translation', 'slicing', 'combat_assist']
   lastUsedAt?: number;
   description?: string;
-  price: number;
+  price?: number;
 }
 
 export interface QuestStep {
@@ -198,17 +199,18 @@ export interface CombatState {
 
 export interface DialogueOption {
   label: string;
-  nextId: string | null;
+  nextId?: string | null;
   reqSkill?: keyof Stats;
   reqVal?: number;
   reqItem?: string;
   reqCredits?: number;
   reqRace?: string;
   reqBackgroundContains?: string;
-  reqQuestState?: { id: string; step: number; completed?: boolean };
+  reqQuestState?: { id: string; step?: number; completed?: boolean };
   reqReputation?: { id: string; min: number };
   reqTime?: "day" | "night";
   action?: (gameState: any) => void;
+  condition?: (gameState: any) => boolean;
 }
 
 export interface DialogueNode {
