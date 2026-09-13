@@ -7,6 +7,7 @@ import {
 } from "./components/Cinematics";
 import { Dashboard } from "./components/Dashboard";
 import { BackgroundAudioPlayer, FullscreenButton } from "./components/Shared";
+import { OfflineIndicator } from "./components/OfflineIndicator";
 import { loadGame, saveGame } from "./utils";
 import { initialLocations, initialQuests, AUDIO } from "./data";
 import { SaveData, Character, Item, Quest } from "./types";
@@ -185,6 +186,7 @@ const App = () => {
 
   return (
     <div className="w-full h-full relative font-sans select-none">
+      <OfflineIndicator />
       {screen !== "GAME" && <FullscreenButton />}
       <BackgroundAudioPlayer
         src={audioTrack}

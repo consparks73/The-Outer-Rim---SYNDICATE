@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BackgroundAudioPlayer, CommandButton, cn } from './Shared';
+import { PWAInstallButton } from './PWAInstallButton';
 import { AUDIO, IMAGES, RACES, CLASSES, BACKSTORIES } from '../data';
 import { Character, Stats, Race, CharClass, SaveData } from '../types';
 import { loadGame } from '../utils';
@@ -429,6 +430,7 @@ export const StartScreen: React.FC<{ onNewGame: () => void, onContinue: (slot: n
                         <FileText size={14} />
                         Changelog
                     </button>
+                    <PWAInstallButton className="text-xs font-mono text-cyan-500/60 hover:text-cyan-400" />
                 </div>
             </div>
 
